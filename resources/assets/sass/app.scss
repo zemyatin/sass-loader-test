@@ -1,1 +1,10 @@
-@import 'foundation';
+// ----------------------------------------------------------
+// App
+// ----------------------------------------------------------
+@import "animate.scss";
+@import "framework/settings";
+@import "framework/framework";
+
+.animate {
+    @include fadeIn();
+}

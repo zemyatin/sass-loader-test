@@ -1,0 +1,34 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@4.1.2
+3 info using node@v7.7.3
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle sass-loader@1.0.0~prestart: sass-loader@1.0.0
+6 silly lifecycle sass-loader@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle sass-loader@1.0.0~start: sass-loader@1.0.0
+8 verbose lifecycle sass-loader@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle sass-loader@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;D:\Users\Andrius\Desktop\sass-loader-test\node_modules\.bin;C:\Program Files\ConEmu\ConEmu\Scripts;C:\Program Files\ConEmu;C:\Program Files\ConEmu\ConEmu;C:\Program Files (x86)\PHP\v5.5;C:\WINDOWS\system32\inetsrv;C:\adb;C:\go\bin;C:\Python27;C:\tools\php;C:\HashiCorp\Vagrant\bin;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\ProgramData\Oracle\Java\javapath;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Intel\iCLS Client;C:\Program Files\Sublime Text 3;C:\Program Files\nodejs;C:\Program Files\Microsoft DNX\Dnvm;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Calibre2\;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files (x86)\Skype\Phone;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft Visual C++ Build Tools;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\gdrive\bin;C:\tools\Java\server-jre\jdk1.8.0_112\bin;;C:\gdrive\bin\putty;C:\gdrive\bin\composer;C:\gdrive\bin\firewall;C:\gdrive\bin\sqlite30;C:\gdrive\bin\artisan;C:\gdrive\bin\cta;C:\Users\Andrius\AppData\Roaming\npm;C:\tools\php71;C:\Program Files\MariaDB 10.1\bin;C:\ProgramData\Chocolatey\lib\elasticsearch\tools\elasticsearch-5.2.0\bin;C:\Program Files\Java\jre1.8.0_121\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Yarn\bin;C:\gdrive\bin\ffmpeg\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\Andrius\AppData\Local\Microsoft\WindowsApps;C:\Users\Andrius\AppData\Local\Yarn\config\global\node_modules\.bin; C:\Users\Andrius\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\chocolatey\lib\elasticsearch\tools\elasticsearch-5.2.0\bin;C:\Users\Andrius\AppData\Local\Yarn\.bin
+10 verbose lifecycle sass-loader@1.0.0~start: CWD: D:\Users\Andrius\Desktop\sass-loader-test
+11 silly lifecycle sass-loader@1.0.0~start: Args: [ '/d /s /c', 'node browser-sync.js' ]
+12 verbose stack Error: kill ENOSYS
+12 verbose stack     at exports._errnoException (util.js:1033:11)
+12 verbose stack     at process.kill (internal/process.js:188:13)
+12 verbose stack     at process.listener (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:95:15)
+12 verbose stack     at emitNone (events.js:86:13)
+12 verbose stack     at process.emit (events.js:188:7)
+12 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:155:32)
+12 verbose stack     at Signal.wrap.onsignal (internal/process.js:215:44)
+13 verbose cwd D:\Users\Andrius\Desktop\sass-loader-test
+14 error Windows_NT 10.0.15063
+15 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
+16 error node v7.7.3
+17 error npm  v4.1.2
+18 error code ENOSYS
+19 error errno ENOSYS
+20 error syscall kill
+21 error kill ENOSYS
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]

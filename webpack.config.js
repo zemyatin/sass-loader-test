@@ -1,28 +1,39 @@
 const webpack = require('webpack')
 const path = require('path')
-// noinspection JSUnresolvedFunction
-module.exports = {
-    entry: [
-        'babel-polyfill',
-        'webpack/hot/dev-server',
-        // ?reload=true enables full page reload on hmr failure
-        'webpack-hot-middleware/client?reload=true',
-        './app'
-    ],
+
+const sassOpt = {
+    sourceMap: true,
+    includePaths: [
+        path.resolve(__dirname, 'vendor/zurb/foundation/scss'),
+        path.resolve(__dirname, 'resources/assets/libs/animate')
+    ]
+}
+const config = {
+    entry: {
+        main: [
+            'babel-polyfill',
+            './app'
+        ]
+    },
     context: path.resolve(__dirname, 'resources/assets/js'),
     output: {
         path: path.resolve(__dirname, 'public/js'),
-        filename: 'app.js',
-        publicPath: '/js/'
+        filename: '[name].chunk.js',
+        chunkFilename: '[chunkhash].[id].js',
+        publicPath: '/js/',
+        pathinfo: true
     },
-    devtool: 'eval-source-map',
+    devtool: 'eval',
     module: {
         rules: [
             {
                 enforce: 'pre',
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
-                exclude: /node_modules/
+                exclude: /node_modules|vue\/src/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/]
+                }
             },
             {
                 enforce: 'pre',
@@ -38,16 +49,18 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
+                    esModule: true,
                     loaders: {
-                        scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
-                        sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
+                        scss: 'vue-style-loader!css-loader!sass-loader?' + JSON.stringify(sassOpt)
                     }
                 }
             },
             {
                 test: /\.scss$/,
                 use: [
-                    {loader: 'style-loader'},
+                    {
+                        loader: 'style-loader'
+                    },
                     {
                         loader: 'css-loader',
                         options: {
@@ -56,40 +69,27 @@ module.exports = {
                     },
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                            includePaths: [
-                                path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
-                            ]
-                        }
+                        options: sassOpt
                     }
                 ]
             }
         ]
     },
     resolve: {
+        extensions: ['.ts', '.js', '.vue'],
         alias: {
-            'inputmask.dependencyLib': path.resolve(__dirname, 'node_modules/jquery.inputmask/extra/dependencyLibs/inputmask.dependencyLib/'),
-            'inputmask': path.resolve(__dirname, 'node_modules/jquery.inputmask/dist/inputmask/inputmask/')
-        },
-        extensions: ['.webpack.js', '.web.js', '.tsx', '.ts', '.js']
+            'vue$': 'vue/dist/vue.esm.js'
+        }
     },
-    // watchOptions: {
-    //     poll: 1000 // <-- it's worth setting a timeout to prevent high CPU load
-    // },
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                context: '/'
+            }
+        }),
         new webpack.HotModuleReplacementPlugin(),
-        // new webpack.LoaderOptionsPlugin({
-        //     options: {
-        //         context: '/', // <- putting this line right under "options" did the trick
-        //         sassLoader: {
-        //             includePaths: [
-        //                 path.resolve(__dirname, 'vendor/zurb/foundation/scss'),
-        //                 path.resolve(__dirname, 'node_modules/motion-ui/src'),
-        //                 path.resolve(__dirname, 'resources/assets/sass')
-        //             ]
-        //         }
-        //     }
-        // })
+        new webpack.NoEmitOnErrorsPlugin()
     ]
 }
+// console.log(config.module.rules[3].use[2])
+module.exports = config

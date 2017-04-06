@@ -1,10 +1,6 @@
 <template>
 	<div class="row">
-		Hellow World
+		Hello World
+        <p class="animate">Animate</p>
 	</div>
 </template>
-
-<style lang="scss">
- @import 'foundation'
-</style>
-

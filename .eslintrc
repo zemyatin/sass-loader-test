@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": "vue",
+  "plugins": ["flowtype"],
+  "rules": {
+    "camelcase": [2, {"properties": "never"}],
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1,
+    "indent": ["error", 4, {"SwitchCase": 1}],
+    "object-curly-spacing": ["error", "never"],
+    "space-before-function-paren": ["error", "never"],
+    "space-before-blocks": ["error", "always"],
+    "space-infix-ops": ["error", {"int32Hint": false}]
+  }
+}
